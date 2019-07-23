@@ -12,15 +12,21 @@ class Interfaz{
 
     construirSelect(){
         api.obtenerMonedasApi()
-           .then( monedas => {
+            .then( monedas => {
 
+                // crear select opciones
+                const select = document.querySelector('#criptomoneda');
+
+                // iterar los resultados
                 for( const [key, value] of  Object.entries(monedas.Data)){
 
-                    console.log(key);
+                    // añadir el symbol y nombre como opciondes del select
+                    const opcion = document.createElement('option');
+                    opcion.value = value.Symbol;
+                    opcion.appendChild(document.createTextNode(value.CoinName));
+                    select.appendChild(opcion)
                 }
-
-
-           });
+            });
     }
 
     mostrarMensaje(mensaje, clases){
