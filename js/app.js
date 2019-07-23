@@ -1,4 +1,7 @@
+const api = new API('8981a0c65cd90cb2899f334e4e096fb567b84c149c3258b8f127aac7741ca1b3');
 const ui = new Interfaz();
+
+
 const formulario = document.querySelector('#formulario');
 
 formulario.addEventListener('submit', (e) =>{
