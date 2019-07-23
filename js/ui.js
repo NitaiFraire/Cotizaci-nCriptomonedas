@@ -42,4 +42,9 @@ class Interfaz{
         // eliminar despues de 3s
         setTimeout(() => { document.querySelector('.mensajes div').remove(); }, 3000);
     }
+
+    mostrarResultado(resultado, moneda, crypto){
+
+        console.log(resultado[crypto][moneda]);
+    }
 }
