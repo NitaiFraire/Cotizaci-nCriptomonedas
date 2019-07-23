@@ -18,7 +18,7 @@ class Interfaz{
                 const select = document.querySelector('#criptomoneda');
 
                 // iterar los resultados
-                for( const [key, value] of  Object.entries(monedas.Data)){
+                for( const [key, value] of Object.entries(monedas.Data)){
 
                     // añadir el symbol y nombre como opciondes del select
                     const opcion = document.createElement('option');

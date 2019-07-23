@@ -25,6 +25,12 @@ formulario.addEventListener('submit', (e) =>{
     }else{
 
         // consultar la api
-        console.log('bien');
+        api.obtenerValores(monedaSeleccionada, cryptoSeleccionada)
+           .then(data => {
+
+            console.log(data);
+
+           });
+        
     }
 });
