@@ -12,7 +12,15 @@ class Interfaz{
 
     construirSelect(){
         api.obtenerMonedasApi()
-           .then( monedas => console.log(monedas));
+           .then( monedas => {
+
+                for( const [key, value] of  Object.entries(monedas.Data)){
+
+                    console.log(key);
+                }
+
+
+           });
     }
 
     mostrarMensaje(mensaje, clases){
