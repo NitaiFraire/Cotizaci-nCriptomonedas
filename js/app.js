@@ -28,7 +28,6 @@ formulario.addEventListener('submit', (e) =>{
         api.obtenerValores(monedaSeleccionada, cryptoSeleccionada)
            .then(data => {
 
-                console.log(data.RAW);
                 ui.mostrarResultado(data.RAW, monedaSeleccionada, cryptoSeleccionada);
            });    
     }

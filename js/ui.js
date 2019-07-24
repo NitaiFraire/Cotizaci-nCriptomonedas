@@ -45,10 +45,19 @@ class Interfaz{
 
     mostrarResultado(resultado, moneda, crypto){
 
+        // en caso de resultado anteriro ocultar
+        const resultadoAnterior = document.querySelector('#resultado > div');
+
+        if(resultadoAnterior){
+            resultadoAnterior.remove();
+        }
+
         const datosMoneda = resultado[crypto][moneda];
         
         // recortar digitos de precio
-        let precio = datosMoneda.PRICE.toFixed(2);
+        let precio = datosMoneda.PRICE.toFixed(2),
+            porcentaje = datosMoneda.CHANGEPCTDAY.toFixed(2),
+            actualizado = new Date(datosMoneda.LASTUPDATE * 1000).toLocaleDateString('es-MX');
 
         // construir template
         let templateHtml = `
@@ -56,10 +65,27 @@ class Interfaz{
                                 <div class="card-body text-light">
                                     <h2 class="card-title">Resultado</h2>
                                     <p>El precio de ${datosMoneda.FROMSYMBOL} a moneda ${datosMoneda.TOSYMBOL} es de: $${precio}</p>
+                                    <p>Variación último día: %${porcentaje}</p>
+                                    <p>Última Actualización: ${actualizado}</p>
                                 </div>
                             </div>`;
 
+        this.mostrarOcultarSpinner('block');
+
         // insertar resultado
-        document.querySelector('#resultado').innerHTML = templateHtml;
+        setTimeout(() => {
+            
+            document.querySelector('#resultado').innerHTML = templateHtml;
+            this.mostrarOcultarSpinner('none');
+
+        }, 2500);
     }
+
+    mostrarOcultarSpinner(vista){
+
+        const spinner = document.querySelector('.contenido-spinner');
+        spinner.style.display = vista;
+    }
+
+
 }
